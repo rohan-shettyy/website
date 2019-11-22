@@ -1,0 +1,102 @@
+@font-face {
+	font-family: Proxima;
+	src: url('Proxima Nova Bold.ttf');
+}
+
+html, body {
+	margin: 0;
+	padding: 0px;
+}
+
+.name {
+	font-family: Proxima !important;
+	font-size: 3rem;
+}
+
+.firstname {
+	color: #689aff;
+}
+
+.lastname {
+	color: #d98a13;
+}
+
+.social {
+	font-family: Proxima !important;
+	font-weight: 700;
+	font-size: 2rem;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: -50px !important;
+	text-align: center;
+}
+
+.memo {
+	font-family: Proxima !important;
+	font-weight: 700;
+	font-size: 2.5rem;
+	margin-top: 100px;
+	text-align: center;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.card-container {
+	margin: 50px auto 0;
+}
+
+.card {
+	width:24rem;
+	max-width: 24rem;
+	border: none;
+	display:inline-block;
+	padding: auto;
+	height: 28rem;
+	box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.5);
+	font-family: Roboto;
+	border-radius: 15px !important;
+}
+
+.card-title {
+	font-family: Proxima;
+	font-weight: 200;
+}
+
+.card-img-top {
+	border-radius: 15px 15px 0 0 !important;
+	border: none;
+}
+
+.bottompadding-img {
+	margin-bottom: 4.1rem;
+}
+
+.jumbotron {
+	background: #4CA1AF;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(305deg, #185a9d, #689aff);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(305deg, #185a9d, #689aff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	font-family: Roboto;
+	border-radius: 15px !important;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+.feature-img {
+	border-radius: 15px;
+	max-width:90% !important;
+	box-shadow: 0px 3px 12px rgba(0,0,0,0.4);
+}
+
+.btn-primary {
+	box-shadow: 0px 3px 12px rgba(0,0,0,0.4);
+	background-color: #d98a13 !important;
+	border: none !important;
+	border-radius: 10px !important;
+}
+
+.btn-primary:hover {
+	background-color: #b96a00 !important;
+}
