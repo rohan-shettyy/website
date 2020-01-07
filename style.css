@@ -85,6 +85,9 @@ html, body {
 	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
 }
 
+.title-div {
+	max-width: 300px !important;
+
 .feature-img {
 	border-radius: 15px;
 	max-width:90% !important;
