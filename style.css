@@ -104,3 +104,7 @@ html, body {
 .btn-primary:hover {
 	background-color: #b96a00 !important;
 }
+	
+.trybtn {
+	background-color: #d98a13 !important;
+}
