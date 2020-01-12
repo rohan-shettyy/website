@@ -95,16 +95,12 @@ html, body {
 }
 	
 .btn {
-	background-color: #d98a13 !important;
-}
-
-.btn-primary, .btn-primary:active, .btn-primary:visited{
 	box-shadow: 0px 3px 12px rgba(0,0,0,0.4);
 	background-color: #d98a13 !important;
 	border: none !important;
 	border-radius: 10px !important;
 }
 
-.btn-primary:hover {
+.btn:hover {
 	background-color: #b96a00 !important;
 }
