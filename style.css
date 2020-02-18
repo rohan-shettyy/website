@@ -70,11 +70,10 @@ html, body {
 .card-img-top {
 	border-radius: 15px 15px 0 0 !important;
 	border: none;
-	max-height: 40%;
 }
 
 .bottompadding-img {
-	margin-bottom: 4.1rem;
+	margin-bottom: auto;
 }
 
 .jumbotron {
