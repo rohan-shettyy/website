@@ -46,6 +46,8 @@ html, body {
 	display: block;
 }
 
+
+
 .card-container {
 	margin: 50px auto 0;
 }
@@ -83,6 +85,7 @@ html, body {
 	font-family: Roboto;
 	border-radius: 15px !important;
 	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+	max-width: 75%;
 }
 
 .title-div {
@@ -112,4 +115,11 @@ html, body {
   .trybtn {
 	  margin-left:auto;
 	  margin-right:auto;
+	}
+  .jumbotron {
+	  max-width: 90%;
+	}
+  .card-row {
+	  max-width: 110%;
+	}
 }
