@@ -85,7 +85,7 @@ html, body {
 	font-family: Roboto;
 	border-radius: 15px !important;
 	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-	max-width: 75%;
+	max-width: 75% !important;
 }
 
 .title-div {
@@ -117,9 +117,9 @@ html, body {
 	  margin-right:auto;
 	}
   .jumbotron {
-	  max-width: 90%;
+	  max-width: 90% !important;
 	}
   .card-row {
-	  max-width: 110%;
+	  max-width: 110% !important;
 	}
 }
