@@ -1,156 +1,368 @@
 <!DOCTYPE html>
-<html>
-  <head>
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4GTZMDRGZ2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rohan Shetty</title>
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --surface: #161616;
+      --border: #222;
+      --text: #e8e8e8;
+      --muted: #888;
+      --accent: #a0b4f0;
+      --tag-bg: #1e2030;
+      --tag-text: #a0b4f0;
+    }
 
-  gtag('config', 'G-4GTZMDRGZ2');
-</script>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>It's me, Rohan.</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400&display=swap" rel="stylesheet">
-	<meta name="yandex-verification" content="cfca47f2cf7c608f" />
-	  <style>
-		  .btn {
-			  background-color: #d98a13 !important;
-		  }
-		  .btn:hover {
-			  background-color: #b96a00 !important;
-		  }
-		  .jumbotron {
-			max-width: 75% !important;
-		  }
-		  @media only screen and (max-width: 960px) {
-			  .card-text.text-light {
-			    text-align: center !important;
-			  }
-			  .trybtn {
-				  margin-left:auto;
-				  margin-right:auto;
-			}
-			  .jumbo-desc {
-				  width: 100% !important;
-			  }
-			  .jumbotron {
-				  max-width: 90% !important;
-			  }
-			  .card-row {
-				  max-width: 110% !important;
-			  }
-		  }
-	  </style>
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
 
-  </head>
-  <body class="bg-light">
-		<div class="container w-90 flex-column justify-content-center social mb-3">
-				<h1 class="name text-dark mt-5 mb-3"><span class="firstname">rohan</span> <span class="lastname">shetty</span></h1>
-				<div class="container d-flex flex-row flex-wrap justify-content-center mt-5 mb-3">
-					<a class="navbar-brand" href="mailto:rohan@rohanshetty.me">
-						<img src="Mail.png" width="30" height="30" class="d-inline-block align-top" alt="">
-						rohan@rohanshetty.me
-					<a class="navbar-brand" href="https://github.com/rohan-shettyy">
-						<img src="githublogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-						rohan-shettyy
-					</a>
-					<a class="navbar-brand" href="https://www.linkedin.com/in/rohanshettyse">
-						<img src="https://cdn3.iconfinder.com/data/icons/social-icons-5/606/LinkedIn.png" width="30" height="30" class="d-inline-block align-top" alt="">
-						rshetty</a>
-				</div>
-		</div>
-			
-			<div class="jumbotron h-100 container mt-5" style="margin-top:80px !important">
-				<div class="container d-flex justify-content-center flex-wrap" style="margin-top: -30px !important; margin-bottom: 30px !important">
-					<div class="container d-flex flex-column d-inline title-div align-left justify-content-center">
-						<h2 class="jumbotron-title text-light memo" style="margin-top:30px !important">Featured Project</h2>
-						<p class="memo text-light" style="font-size:2rem !important; margin-top: 20px !important">Samir's Pizza Delivery</p>
-					</div>
-					<div class="container d-flex flex-column d-inline align-right w-50 jumbo-desc justify-content-center">
-						<p class="card-text text-light">A co-op Unity game where players must collaborate to deliver pizzas in a chaotic Manhattan district. Created with Unity's Relay (Beta) networking solution.</p>
-						<a  href="https://github.com/JonaThanosSnap/Samirs-Pizza-Delivery" class="btn trybtn text-dark mt-auto w-75 d-inline align-left" style="margin-top: 0 !important;">Check it out on GitHub</a>
-					</div>
-				</div>
-				<img src="samir.png" class="align-center img-fluid w-100 d-block mx-auto feature-img" style="border-radius:10px;">
-			</div>
+    a { color: inherit; text-decoration: none; }
 
-			<h1 class="memo text-dark">All Projects</h1>
+    /* ── Header ── */
+    header {
+      margin-bottom: 64px;
+    }
 
-			<div class="d-flex justify-content-center card-container" style="width:85% !important;">
-				<div class="row mt-4 card-row">
-					<div class="col d-flex justify-content-center mb-5">
-						<div class="card">
-							<img src="tnt.png" class="card-img-top img-fluid bottompadding-img" alt="Tuesday Night Tempo">
-							<div class="card-body d-flex flex-column">
-								<h5 class="card-title text-dark">Tuesday Night Tempo</h5>
-								<p class="card-text text-dark">A fun rhythm game written in Unity that allows you to use a real drum set as a controller. Winner of Hack the North 2021.</p>
-								<a  href="https://devpost.com/software/saturday-night-smashing" class="btn trybtn text-dark mt-auto">Check it out on Devpost</a>
-							</div>
-						</div>
-					</div>
-					<div class="col d-flex justify-content-center mb-5">
-						<div class="card">
-							<img src="tabular.png" class="card-img-top img-fluid bottompadding-img" alt="Tabular">
-							<div class="card-body d-flex flex-column">
-								<h5 class="card-title text-dark">Tabular</h5>
-								<p class="card-text text-dark">A program that can run any keybind using facial recognition and a Raspberry Pi. Winner of Hack the North 2020++.</p>
-								<a  href="https://devpost.com/software/hackthenorth2020-02khts" class="btn trybtn text-dark mt-auto">Check it out on Devpost</a>
-							</div>
-						</div>
-					</div>
-					<div class="col d-flex justify-content-center mb-5">
-						<div class="card">
-							<img src="KonbiniWallpaper.png" class="card-img-top img-fluid bottompadding-img" alt="wallpaper Wizard">
-							<div class="card-body d-flex flex-column">
-								<h5 class="card-title text-dark">Wallpaper Wizard</h5>
-								<p class="card-text text-dark">Change your wallpaper automatically based on the weather and time of day. Quickly and easily import your own wallpapers, or choose from provided themes.</p>
-								<a  href="https://cyndakwil.itch.io/wallpaper-wizard" class="btn trybtn text-dark mt-auto">Download on itch.io</a>
-							</div>
-						</div>
-					</div>
-					<div class="col d-flex justify-content-center mb-5">
-						<div class="card">
-							<img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/001/560/113/datas/gallery.jpg" class="card-img-top img-fluid bottompadding-img" alt="Garbage Wrangler">
-							<div class="card-body d-flex flex-column">
-								<h5 class="card-title text-dark">Garbage Wrangler</h5>
-								<p class="card-text text-dark">A Unity3D game that teaches you about protecting ocean life as you collect garbage in a little submarine. Winner of Best Oceans hack at Hack the Earth 2021.</p>
-								<a  href="https://devpost.com/software/garbage-wrangler" class="btn trybtn text-dark mt-auto">Check it out on Devpost</a>
-							</div>
-						</div>
-					</div>
-					<div class="col d-flex justify-content-center mb-5">
-						<div class="card">
-							<img src="terraingen.png" class="card-img-top img-fluid bottompadding-img" alt="terrain generator">
-							<div class="card-body d-flex flex-column">
-								<h5 class="card-title text-dark">Procedural Terrain Generator</h5>
-								<p class="card-text text-dark">A Java program using Processing that generates infinite terrain using Perlin Noise.</p>
-								<a  href="https://github.com/Cyndakwil/Terrain_Generator" class="btn trybtn text-dark mt-auto">Check it out on Github</a>
-							</div>
-						</div>
-					</div>
-					<div class="col d-flex justify-content-center mb-5">
-						<div class="card">
-							<img src="communol.png" class="card-img-top img-fluid bottompadding-img" alt="communol screen">
-							<div class="card-body d-flex flex-column">
-								<h5 class="card-title text-dark">Communol</h5>
-								<p class="card-text text-dark">Draw on a literally infinite canvas in your browser. All your changes are synced in real-time so you can jot ideas with your friends.</p>
-								<a  href="https://communol.rshetty.repl.co" class="btn trybtn text-dark mt-auto">Try it now</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-  </body>
+    header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    header p.tagline {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.15s;
+    }
+
+    .socials a:hover { color: var(--text); }
+
+    .socials svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    /* ── Section ── */
+    section { margin-bottom: 56px; }
+
+    section h2 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    /* ── Education ── */
+    .edu-item h3 {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .edu-item .meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ── Experience ── */
+    .exp-item {
+      padding: 20px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .exp-item:last-child { border-bottom: 1px solid var(--border); }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .exp-header h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .exp-header .date {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .exp-role {
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .exp-item ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .exp-item ul li {
+      font-size: 0.875rem;
+      color: #bbb;
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 5px;
+    }
+
+    .exp-item ul li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--border);
+    }
+
+    /* ── Projects ── */
+    .projects-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      transition: border-color 0.15s;
+      display: block;
+    }
+
+    .project-card:hover { border-color: #444; }
+
+    .project-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .project-card h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .project-card .arrow {
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: color 0.15s;
+    }
+
+    .project-card:hover .arrow { color: var(--text); }
+
+    .project-card .tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .project-card p {
+      font-size: 0.86rem;
+      color: #999;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 48px 18px 80px; }
+      header h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header>
+    <h1>Rohan Shetty</h1>
+    <p class="tagline">Software Engineering @ University of Waterloo</p>
+    <nav class="socials">
+
+      <!-- Email -->
+      <a href="mailto:r3shetty@uwaterloo.ca">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V9.21l8 5 8-5V18z"/></svg>
+        r3shetty@uwaterloo.ca
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/rohan-shettyy" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        github.com/rohan-shettyy
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://linkedin.com/in/rohanshettyse" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        linkedin.com/in/rohanshettyse
+      </a>
+
+      <!-- Website -->
+      <a href="https://rohanshetty.me" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1 21.932A10.012 10.012 0 0 1 2.063 13H5c.195 2.374.977 4.574 2.298 6.396L7 19l-1 .571zm2 0V20c.195-.208.382-.423.563-.644C14.75 17.6 15.778 15.378 16 13h2.937A10.012 10.012 0 0 1 13 21.932zM16 11c-.222-2.378-1.25-4.6-2.437-6.356A9.967 9.967 0 0 1 13 4.068V3a10.012 10.012 0 0 1 5.937 8H16zm-4-7.932V5c-.195.208-.382.423-.563.644C10.25 7.4 9.222 9.622 9 12H6.063A10.012 10.012 0 0 1 12 3.068zM6.063 13H9c.222 2.378 1.25 4.6 2.437 6.356.18.22.368.436.563.644v.932A10.012 10.012 0 0 1 6.063 13zM11 4.068V5a9.958 9.958 0 0 0-.563.644C9.25 7.4 8.222 9.622 8 12H5c.208-3.87 2.75-7.128 6-8.068z"/></svg>
+        rohanshetty.me
+      </a>
+
+    </nav>
+  </header>
+
+  <!-- ── Education ── -->
+  <section>
+    <h2>Education</h2>
+    <div class="edu-item">
+      <h3>University of Waterloo</h3>
+      <div class="meta">Bachelor of Software Engineering &nbsp;·&nbsp; 2021 – 2026 &nbsp;·&nbsp; Waterloo, Canada</div>
+    </div>
+  </section>
+
+  <!-- ── Experience ── -->
+  <section>
+    <h2>Experience</h2>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3><a href="https://simplify.jobs/c/HeyGen" target="_blank">HeyGen</a></h3>
+        <span class="date">May 2025 – Aug 2025</span>
+      </div>
+      <div class="exp-role">Software Engineer Intern · AI Infrastructure · Toronto, Canada</div>
+      <ul>
+        <li>Optimized AI video generation model by integrating sage attention into the PyTorch pipeline; utilized outlier smoothing and Int4 quantization to decrease end-to-end latency by 10%.</li>
+        <li>Engineered logging and profiling utilities to expose metrics on memory usage and inference bottlenecks.</li>
+        <li>Architected a storage migration from AWS S3 to Cloudflare R2 for model checkpoints, reducing storage costs by 35%.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3><a href="https://simplify.jobs/c/Huawei-Tech" target="_blank">Huawei</a></h3>
+        <span class="date">Jan 2025 – Apr 2025</span>
+      </div>
+      <div class="exp-role">AI Systems Research Intern · Markham, Canada</div>
+      <ul>
+        <li>Benchmarked Microsoft's BitNet against llama.cpp and llama3.c, conducting top-down microarchitecture analysis to isolate compute/memory bottlenecks.</li>
+        <li>Designed a custom C++ data prefetcher with page boundary awareness, resulting in a 6% speedup in mobile inference benchmarks.</li>
+        <li>Proposed a specialized kernel for 1-bit LLMs supporting fine-grained structured sparsity, reducing MatMul overhead by 20%.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3>Tactic Studios</h3>
+        <span class="date">May 2024 – Aug 2024</span>
+      </div>
+      <div class="exp-role">Game Programmer Intern · London, Canada</div>
+      <ul>
+        <li>Developed 20+ responsive, data-driven UI modules in Java for RPG title "Killer Inn" published by Square Enix.</li>
+        <li>Engineered "Expression Resources," a core engine tool enabling dynamic object referencing, decoupling game logic from asset data and accelerating iteration cycles.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3>Besty AI</h3>
+        <span class="date">Sep 2023 – Dec 2023</span>
+      </div>
+      <div class="exp-role">Software Engineer Intern · New York, USA</div>
+      <ul>
+        <li>Integrated GPT-4 into automated upselling workflows for rental property hosts, generating over $300 in additional weekly revenue per user post-launch.</li>
+        <li>Built a real-time product analytics dashboard in React.js visualizing 500+ daily interactions using LLAMA-2 for guest intent classification.</li>
+        <li>Optimized backend performance by deploying Node.js workers for SQL preprocessing, capping API response time at 100ms.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3><a href="https://simplify.jobs/c/Behaviour-Interactive" target="_blank">Behaviour Interactive</a></h3>
+        <span class="date">Jan 2023 – Apr 2023</span>
+      </div>
+      <div class="exp-role">Game Programmer Intern · Toronto, Canada</div>
+      <ul>
+        <li>Spearheaded gameplay development of the "Dead by Daylight" 7th Anniversary update in C++, collaborating with 20+ engineers.</li>
+        <li>Created an object highlighting system supporting numerous shader properties and events on game objects.</li>
+        <li>Leveraged Unreal Engine's network replication system for stability under 200ms latency and 2% packet loss.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ── Projects ── -->
+  <section>
+    <h2>Projects</h2>
+    <div class="projects-grid">
+
+      <!-- Project card — duplicate this block to add more projects -->
+      <a class="project-card" href="https://github.com/rohan-shettyy/ThermaLM" target="_blank">
+        <div class="project-card-top">
+          <h3>ThermaLM</h3>
+          <span class="arrow">↗</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Kotlin</span>
+          <span class="tag">C++</span>
+        </div>
+        <p>Thermal-aware LLM inference scheduler that dynamically adapts configuration based on device thermal and battery state. Achieves 10% reduced wattage and 14% longer battery life on Pixel 8 via KV-cache quantization, flash attention, and sparsity.</p>
+      </a>
+
+      <a class="project-card" href="https://rohan-shettyy.github.io/violin-dataset/" target="_blank">
+        <div class="project-card-top">
+          <h3>Sensor-Driven Violin Performance Capture</h3>
+          <span class="arrow">↗</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Raspberry Pi</span>
+        </div>
+        <p>Augmented violin using Raspberry Pi to capture high-fidelity telemetry — bow pressure, position, and pitch — with >85% detection accuracy. Curated a novel dataset of expressive performance metrics from ten violinists.</p>
+      </a>
+      <!-- End project card -->
+
+    </div>
+  </section>
+
+</body>
 </html>
