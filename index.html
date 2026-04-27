@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rohan Shetty</title>
+  <title>It's me, Rohan.</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32,2 Q37,27 62,32 Q37,37 32,62 Q27,37 2,32 Q27,27 32,2Z' fill='%23fff' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E" />
   <style>
+    /* ── Light mode (default) ── */
     :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --border: #e0e0e0;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --accent: #4a6cf7;
+      --tag-bg: #edf0ff;
+      --tag-text: #4a6cf7;
+      --li-color: #555;
+      --desc-color: #666;
+      --card-hover: #c0c0c0;
+    }
+
+    /* ── Dark mode ── */
+    [data-theme="dark"] {
       --bg: #0f0f0f;
       --surface: #161616;
       --border: #222;
@@ -14,9 +33,23 @@
       --accent: #a0b4f0;
       --tag-bg: #1e2030;
       --tag-text: #a0b4f0;
+      --li-color: #bbb;
+      --desc-color: #999;
+      --card-hover: #444;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        fill 0.35s ease,
+        box-shadow 0.35s ease;
+    }
 
     body {
       background: var(--bg);
@@ -28,7 +61,53 @@
       padding: 80px 24px 120px;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ── Theme Toggle ── */
+    .theme-toggle {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 100;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s, transform 0.2s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      border-color: var(--accent);
+    }
+
+    .theme-toggle svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--text);
+      transition: fill 0.3s;
+    }
+
+    .theme-toggle .icon-moon {
+      display: none;
+    }
+
+    [data-theme="dark"] .theme-toggle .icon-sun {
+      display: none;
+    }
+
+    [data-theme="dark"] .theme-toggle .icon-moon {
+      display: block;
+    }
 
     /* ── Header ── */
     header {
@@ -63,7 +142,9 @@
       transition: color 0.15s;
     }
 
-    .socials a:hover { color: var(--text); }
+    .socials a:hover {
+      color: var(--text);
+    }
 
     .socials svg {
       width: 15px;
@@ -73,7 +154,9 @@
     }
 
     /* ── Section ── */
-    section { margin-bottom: 56px; }
+    section {
+      margin-bottom: 56px;
+    }
 
     section h2 {
       font-size: 0.7rem;
@@ -102,7 +185,9 @@
       border-top: 1px solid var(--border);
     }
 
-    .exp-item:last-child { border-bottom: 1px solid var(--border); }
+    .exp-item:last-child {
+      border-bottom: 1px solid var(--border);
+    }
 
     .exp-header {
       display: flex;
@@ -137,7 +222,7 @@
 
     .exp-item ul li {
       font-size: 0.875rem;
-      color: #bbb;
+      color: var(--li-color);
       padding-left: 14px;
       position: relative;
       margin-bottom: 5px;
@@ -165,7 +250,9 @@
       display: block;
     }
 
-    .project-card:hover { border-color: #444; }
+    .project-card:hover {
+      border-color: var(--card-hover);
+    }
 
     .project-card-top {
       display: flex;
@@ -185,7 +272,9 @@
       transition: color 0.15s;
     }
 
-    .project-card:hover .arrow { color: var(--text); }
+    .project-card:hover .arrow {
+      color: var(--text);
+    }
 
     .project-card .tags {
       display: flex;
@@ -206,17 +295,44 @@
 
     .project-card p {
       font-size: 0.86rem;
-      color: #999;
+      color: var(--desc-color);
       line-height: 1.5;
     }
 
     @media (max-width: 480px) {
-      body { padding: 48px 18px 80px; }
-      header h1 { font-size: 1.6rem; }
+      body {
+        padding: 48px 18px 80px;
+      }
+
+      header h1 {
+        font-size: 1.6rem;
+      }
     }
   </style>
+  <script>
+    // Apply saved theme before first paint to prevent flash
+    (function () {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
 </head>
+
 <body>
+
+  <!-- ── Theme Toggle ── -->
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+    <!-- Sun icon (visible in light mode) -->
+    <svg class="icon-sun" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-13a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm0 18a1 1 0 0 1 1 1v0a1 1 0 0 1-2 0v0a1 1 0 0 1 1-1zm0-1a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0v-1a1 1 0 0 1 1-1zM5.64 5.64a1 1 0 0 1 1.41 0l.71.71a1 1 0 0 1-1.41 1.41l-.71-.71a1 1 0 0 1 0-1.41zm12.02 12.02a1 1 0 0 1 1.41 0l.71.71a1 1 0 0 1-1.41 1.41l-.71-.71a1 1 0 0 1 0-1.41zM3 12a1 1 0 0 1 1-1h1a1 1 0 0 1 0 2H4a1 1 0 0 1-1-1zm16 0a1 1 0 0 1 1-1h1a1 1 0 0 1 0 2h-1a1 1 0 0 1-1-1zM5.64 18.36a1 1 0 0 1 0-1.41l.71-.71a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1-1.41 0zm12.02-12.02a1 1 0 0 1 0-1.41l.71-.71a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1-1.41 0z" />
+    </svg>
+    <!-- Moon icon (visible in dark mode) -->
+    <svg class="icon-moon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M21.64 13a1 1 0 0 0-1.05-.14 8.05 8.05 0 0 1-3.37.73A8.15 8.15 0 0 1 9.08 5.49a8.59 8.59 0 0 1 .25-2 1 1 0 0 0-.35-1 1 1 0 0 0-1.06-.07A10 10 0 1 0 21.77 14a1 1 0 0 0-.13-1zM12 20a8 8 0 0 1-6.95-12A9.94 9.94 0 0 0 19.19 15 8 8 0 0 1 12 20z" />
+    </svg>
+  </button>
 
   <!-- ── Header ── -->
   <header>
@@ -226,19 +342,28 @@
 
       <!-- Email -->
       <a href="mailto:r3shetty@uwaterloo.ca">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V9.21l8 5 8-5V18z"/></svg>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V9.21l8 5 8-5V18z" />
+        </svg>
         r3shetty@uwaterloo.ca
       </a>
 
       <!-- GitHub -->
       <a href="https://github.com/rohan-shettyy" target="_blank">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+        </svg>
         github.com/rohan-shettyy
       </a>
 
       <!-- LinkedIn -->
       <a href="https://linkedin.com/in/rohanshettyse" target="_blank">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+        </svg>
         linkedin.com/in/rohanshettyse
       </a>
 
@@ -265,9 +390,11 @@
       </div>
       <div class="exp-role">Software Engineer Intern · AI Infrastructure · Toronto, Canada</div>
       <ul>
-        <li>Optimized AI video generation model by integrating sage attention into the PyTorch pipeline; utilized outlier smoothing and Int4 quantization to decrease end-to-end latency by 10%.</li>
+        <li>Optimized AI video generation model by integrating sage attention into the PyTorch pipeline; utilized
+          outlier smoothing and Int4 quantization to decrease end-to-end latency by 10%.</li>
         <li>Engineered logging and profiling utilities to expose metrics on memory usage and inference bottlenecks.</li>
-        <li>Architected a storage migration from AWS S3 to Cloudflare R2 for model checkpoints, reducing storage costs by 35%.</li>
+        <li>Architected a storage migration from AWS S3 to Cloudflare R2 for model checkpoints, reducing storage costs
+          by 35%.</li>
       </ul>
     </div>
 
@@ -278,9 +405,12 @@
       </div>
       <div class="exp-role">AI Systems Research Intern · Markham, Canada</div>
       <ul>
-        <li>Benchmarked Microsoft's BitNet against llama.cpp and llama3.c, conducting top-down microarchitecture analysis to isolate compute/memory bottlenecks.</li>
-        <li>Designed a custom C++ data prefetcher with page boundary awareness, resulting in a 6% speedup in mobile inference benchmarks.</li>
-        <li>Proposed a specialized kernel for 1-bit LLMs supporting fine-grained structured sparsity, reducing MatMul overhead by 20%.</li>
+        <li>Benchmarked Microsoft's BitNet against llama.cpp and llama3.c, conducting top-down microarchitecture
+          analysis to isolate compute/memory bottlenecks.</li>
+        <li>Designed a custom C++ data prefetcher with page boundary awareness, resulting in a 6% speedup in mobile
+          inference benchmarks.</li>
+        <li>Proposed a specialized kernel for 1-bit LLMs supporting fine-grained structured sparsity, reducing MatMul
+          overhead by 20%.</li>
       </ul>
     </div>
 
@@ -291,8 +421,10 @@
       </div>
       <div class="exp-role">Game Programmer Intern · London, Canada</div>
       <ul>
-        <li>Developed 20+ responsive, data-driven UI modules in Java for RPG title "Killer Inn" published by Square Enix.</li>
-        <li>Engineered "Expression Resources," a core engine tool enabling dynamic object referencing, decoupling game logic from asset data and accelerating iteration cycles.</li>
+        <li>Developed 20+ responsive, data-driven UI modules in Java for RPG title "Killer Inn" published by Square
+          Enix.</li>
+        <li>Engineered "Expression Resources," a core engine tool enabling dynamic object referencing, decoupling game
+          logic from asset data and accelerating iteration cycles.</li>
       </ul>
     </div>
 
@@ -303,9 +435,12 @@
       </div>
       <div class="exp-role">Software Engineer Intern · New York, USA</div>
       <ul>
-        <li>Integrated GPT-4 into automated upselling workflows for rental property hosts, generating over $300 in additional weekly revenue per user post-launch.</li>
-        <li>Built a real-time product analytics dashboard in React.js visualizing 500+ daily interactions using LLAMA-2 for guest intent classification.</li>
-        <li>Optimized backend performance by deploying Node.js workers for SQL preprocessing, capping API response time at 100ms.</li>
+        <li>Integrated GPT-4 into automated upselling workflows for rental property hosts, generating over $300 in
+          additional weekly revenue per user post-launch.</li>
+        <li>Built a real-time product analytics dashboard in React.js visualizing 500+ daily interactions using LLAMA-2
+          for guest intent classification.</li>
+        <li>Optimized backend performance by deploying Node.js workers for SQL preprocessing, capping API response time
+          at 100ms.</li>
       </ul>
     </div>
 
@@ -316,9 +451,11 @@
       </div>
       <div class="exp-role">Game Programmer Intern · Toronto, Canada</div>
       <ul>
-        <li>Spearheaded gameplay development of the "Dead by Daylight" 7th Anniversary update in C++, collaborating with 20+ engineers.</li>
+        <li>Spearheaded gameplay development of the "Dead by Daylight" 7th Anniversary update in C++, collaborating with
+          20+ engineers.</li>
         <li>Created an object highlighting system supporting numerous shader properties and events on game objects.</li>
-        <li>Leveraged Unreal Engine's network replication system for stability under 200ms latency and 2% packet loss.</li>
+        <li>Leveraged Unreal Engine's network replication system for stability under 200ms latency and 2% packet loss.
+        </li>
       </ul>
     </div>
 
@@ -339,7 +476,9 @@
           <span class="tag">Kotlin</span>
           <span class="tag">C++</span>
         </div>
-        <p>Thermal-aware LLM inference scheduler that dynamically adapts configuration based on device thermal and battery state. Achieves 10% reduced wattage and 14% longer battery life on Pixel 8 via KV-cache quantization, flash attention, and sparsity.</p>
+        <p>Thermal-aware LLM inference scheduler that dynamically adapts configuration based on device thermal and
+          battery state. Achieves 10% reduced wattage and 14% longer battery life on Pixel 8 via KV-cache quantization,
+          flash attention, and sparsity.</p>
       </a>
 
       <a class="project-card" href="https://rohan-shettyy.github.io/violin-dataset/" target="_blank">
@@ -351,12 +490,59 @@
           <span class="tag">Python</span>
           <span class="tag">Raspberry Pi</span>
         </div>
-        <p>Augmented violin using Raspberry Pi to capture high-fidelity telemetry — bow pressure, position, and pitch — with >85% detection accuracy. Curated a novel dataset of expressive performance metrics from ten violinists.</p>
+        <p>Augmented violin using Raspberry Pi to capture high-fidelity telemetry — bow pressure, position, and pitch —
+          with >85% detection accuracy. Curated a novel dataset of expressive performance metrics from ten violinists.
+        </p>
+      </a>
+
+      <a class="project-card" href="https://github.com/rohan-shettyy/commerce-agent" target="_blank">
+        <div class="project-card-top">
+          <h3>ShopBot</h3>
+          <span class="arrow">↗</span>
+        </div>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">LangGraph</span>
+          <span class="tag">Gemini</span>
+        </div>
+        <p>Multimodal AI shopping assistant supporting text, voice, and visual search. Uses LangGraph for stateful
+          agent orchestration, CLIP + FAISS for local visual similarity, and Gemini for reasoning, TTS, and STT.</p>
+      </a>
+
+      <a class="project-card" href="https://github.com/rohan-shettyy/Tuesday-Night-Tempo" target="_blank">
+        <div class="project-card-top">
+          <h3>Tuesday Night Tempo</h3>
+          <span class="arrow">↗</span>
+        </div>
+        <div class="tags">
+          <span class="tag">C#</span>
+          <span class="tag">Unity</span>
+        </div>
+        <p>A rhythm game that uses a real drumset as the controller. Built in Unity with custom input handling to map
+          live drum hits to in-game note lanes.</p>
       </a>
       <!-- End project card -->
 
     </div>
   </section>
 
+  <script>
+    (function () {
+      var toggle = document.getElementById('theme-toggle');
+      toggle.addEventListener('click', function () {
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    })();
+  </script>
+
 </body>
+
 </html>
